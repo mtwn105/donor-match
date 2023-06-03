@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  endpoint: "https://cloud.appwrite.io/v1",
+  project: "647b160e6c4a5f301d91",
+  // collectionID: environment.APP_COLLECTION_ID
 };
 
 /*
