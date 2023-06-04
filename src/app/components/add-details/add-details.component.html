@@ -1,0 +1,88 @@
+<div class="flex items-center justify-center m-4">
+
+  <!-- add elevation to mat-card -->
+  <mat-card class="w-1/2" style="max-width: 500px;" mat-elevation-z="5">
+    <mat-card-header>
+      <mat-card-title>Fill your Details</mat-card-title>
+      <mat-card-subtitle>to get started</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="">
+        <form [formGroup]="addDetailsForm" (ngSubmit)="onSubmit()">
+          <mat-form-field class="w-full">
+            <input matInput placeholder="First Name" formControlName="firstName">
+            <mat-error *ngIf="addDetailsForm.controls['firstName'].hasError('required')">
+              First Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="w-full">
+            <input matInput placeholder="Last Name" formControlName="lastName">
+            <mat-error *ngIf="addDetailsForm.controls['lastName'].hasError('required')">
+              Last Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="w-full">
+            <input matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName="dateOfBirth">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="addDetailsForm.controls['dateOfBirth'].hasError('required')">
+              Date of Birth is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+
+
+          <mat-form-field class="w-full">
+            <mat-select placeholder="Blood Group" formControlName="bloodGroup">
+              <mat-option *ngFor="let bloodGroup of bloodGroups" [value]="bloodGroup">
+                {{bloodGroup}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="addDetailsForm.controls['bloodGroup'].hasError('required')">
+              Blood Group is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="w-full">
+            <input matInput placeholder="City" formControlName="city">
+            <mat-error *ngIf="addDetailsForm.controls['city'].hasError('required')">
+              City is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="w-full">
+            <input matInput placeholder="State" formControlName="state">
+            <mat-error *ngIf="addDetailsForm.controls['state'].hasError('required')">
+              State is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="w-full">
+            <input matInput placeholder="Country" formControlName="country">
+            <mat-error *ngIf="addDetailsForm.controls['country'].hasError('required')">
+              Country is <strong>required</strong>
+            </mat-error>
+
+          </mat-form-field>
+
+          <mat-form-field class="w-full">
+            <textarea matInput placeholder="Address" formControlName="address"></textarea>
+            <mat-error *ngIf="addDetailsForm.controls['address'].hasError('required')">
+              Address is <strong>required</strong>
+            </mat-error>
+
+          </mat-form-field>
+          <div>
+            <mat-checkbox formControlName="donorFlag">Become a Donor</mat-checkbox>
+          </div>
+          <button class="mt-4 mb-4 w-full" mat-raised-button color="primary" type="submit">Submit</button>
+
+        </form>
+
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+</div>
