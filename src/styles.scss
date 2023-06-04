@@ -8,6 +8,9 @@
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat.core();
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
@@ -25,7 +28,9 @@ $donor-match-theme: mat.define-light-theme((
     primary: $donor-match-primary,
     accent: $donor-match-accent,
     warn: $donor-match-warn,
-  )
+  ),
+     'elevation': ('5': '0 5px 10px 0 rgba(0, 0, 0, 0.2)',
+     )
 ));
 
 // Include theme styles for core and each component used in your app.
@@ -35,5 +40,4 @@ $donor-match-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { font-family: Roboto, "Helvetica Neue", sans-serif; }

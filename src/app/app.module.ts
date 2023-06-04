@@ -8,9 +8,23 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatOptionModule } from '@angular/material/core';
+import { MatNativeDateModule } from '@angular/material/core';
+
+
+import { LoginComponent } from './components/login/login.component';
+import { AddDetailsComponent } from './components/add-details/add-details.component';
+import { AuthGuard } from './guard/auth.guard';
+import { AuthService } from './services/auth.service';
+import { AngularMaterialModule } from './material.module';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    AddDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -18,11 +32,19 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    AngularMaterialModule,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatOptionModule,
+    MatNativeDateModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard, AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
