@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -8,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  appId = '';
+
+  constructor() {
+    this.appId = environment.appId;
+  }
 
   ngOnInit(): void {
   }

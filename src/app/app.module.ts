@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,11 +20,16 @@ import { AddDetailsComponent } from './components/add-details/add-details.compon
 import { AuthGuard } from './guard/auth.guard';
 import { AuthService } from './services/auth.service';
 import { AngularMaterialModule } from './material.module';
+import '@passageidentity/passage-elements/passage-auth';
+import { DashboardComponent } from './dashboard/dashboard.component'
+
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    AddDetailsComponent
+    AddDetailsComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +47,7 @@ import { AngularMaterialModule } from './material.module';
     MatOptionModule,
     MatNativeDateModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     AuthGuard, AuthService
   ],
