@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Api } from './helpers/api';
-import { Account, ID } from 'appwrite';
 import { AuthService } from './services/auth.service';
 import { Router } from '@angular/router';
 
@@ -18,16 +16,14 @@ export class AppComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    const account = new Account(Api.provider());
 
-    const user = await account.get();
 
-    if (user) {
-      console.log('User already logged in', user);
-      this.authService.saveUser(user);
-      this.router.navigate(['/add-details']);
-      return;
-    }
+    // if (user) {
+    //   console.log('User already logged in', user);
+    //   this.authService.saveUser(user);
+    //   this.router.navigate(['/add-details']);
+    //   return;
+    // }
   }
 
 }

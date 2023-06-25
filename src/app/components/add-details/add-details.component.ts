@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Account } from 'appwrite';
-import { Api } from 'src/app/helpers/api';
 
 @Component({
   selector: 'app-add-details',
@@ -78,8 +76,6 @@ export class AddDetailsComponent implements OnInit {
     if (this.addDetailsForm.invalid) {
       return;
     }
-
-    const account = new Account(Api.provider());
 
 
 
