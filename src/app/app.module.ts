@@ -21,7 +21,11 @@ import { AuthGuard } from './guard/auth.guard';
 import { AuthService } from './services/auth.service';
 import { AngularMaterialModule } from './material.module';
 import '@passageidentity/passage-elements/passage-auth';
-import { DashboardComponent } from './dashboard/dashboard.component'
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore'
+import { UserService } from './services/user.service';
 
 
 @NgModule({
@@ -45,11 +49,13 @@ import { DashboardComponent } from './dashboard/dashboard.component'
     MatInputModule,
     MatDatepickerModule,
     MatOptionModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore())
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
-    AuthGuard, AuthService
+    AuthGuard, AuthService, UserService
   ],
   bootstrap: [AppComponent]
 })

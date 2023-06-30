@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +14,7 @@ export class DashboardComponent implements OnInit {
   public isLoading: Boolean = false;
   public isAuthenticated: Boolean = false;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
     this.isLoading = true;
@@ -22,10 +24,14 @@ export class DashboardComponent implements OnInit {
         this.isAuthenticated = this.authService.isAuthenticated;
         this.username = this.authService.username;
         console.log('User : ', this.authService.getUser());
+        this.userService.saveUser(this.authService.getUser());
       } else {
         this.isLoading = false;
         this.isAuthenticated = false;
         this.username = '';
+        this.authService.setDbUser(null);
+        // Navigate to login page
+        this.router.navigate(['/']);
       }
     })
   }

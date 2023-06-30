@@ -8,6 +8,7 @@ import { PassageUser, PassageUserInfo } from '@passageidentity/passage-elements/
 export class AuthService {
 
   user: any;
+  dbUser: any;
   isAuthenticated: boolean = false;
   public username: string | undefined = '';
   public isLoading: boolean = true;
@@ -25,7 +26,25 @@ export class AuthService {
       return null;
     }
 
-    return JSON.parse(localStorage.getItem('user') as any);
+    this.user = JSON.parse(localStorage.getItem('user') as any);
+
+    return this.user;
+
+  }
+
+  setDbUser(dbUser: any) {
+    this.dbUser = dbUser;
+    localStorage.setItem('dbUser', dbUser);
+  }
+
+  getDbUser() {
+    if (localStorage.getItem('dbUser') === null) {
+      return null;
+    }
+
+    this.dbUser = localStorage.getItem('dbUser');
+
+    return this.dbUser;
   }
 
   public async isLoggedIn(): Promise<boolean> {
@@ -41,10 +60,13 @@ export class AuthService {
         this.isLoading = false;
         this.isAuthenticated = false;
         this.username = '';
+        localStorage.removeItem('user');
       }
       return this.isAuthenticated;
 
     })
   }
+
+
 
 }
