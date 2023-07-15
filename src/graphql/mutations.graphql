@@ -1,0 +1,43 @@
+# this is an auto generated file. This will be overwritten
+
+mutation CreateDonor(
+  $input: CreateDonorInput!
+  $condition: ModelDonorConditionInput
+) {
+  createDonor(input: $input, condition: $condition) {
+    id
+    donor_name
+    blood_group
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateDonor(
+  $input: UpdateDonorInput!
+  $condition: ModelDonorConditionInput
+) {
+  updateDonor(input: $input, condition: $condition) {
+    id
+    donor_name
+    blood_group
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteDonor(
+  $input: DeleteDonorInput!
+  $condition: ModelDonorConditionInput
+) {
+  deleteDonor(input: $input, condition: $condition) {
+    id
+    donor_name
+    blood_group
+    createdAt
+    updatedAt
+    __typename
+  }
+}

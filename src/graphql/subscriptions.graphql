@@ -1,0 +1,34 @@
+# this is an auto generated file. This will be overwritten
+
+subscription OnCreateDonor($filter: ModelSubscriptionDonorFilterInput) {
+  onCreateDonor(filter: $filter) {
+    id
+    donor_name
+    blood_group
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnUpdateDonor($filter: ModelSubscriptionDonorFilterInput) {
+  onUpdateDonor(filter: $filter) {
+    id
+    donor_name
+    blood_group
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+subscription OnDeleteDonor($filter: ModelSubscriptionDonorFilterInput) {
+  onDeleteDonor(filter: $filter) {
+    id
+    donor_name
+    blood_group
+    createdAt
+    updatedAt
+    __typename
+  }
+}

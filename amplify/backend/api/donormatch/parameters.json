@@ -1,0 +1,6 @@
+{
+  "AppSyncApiName": "donormatch",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthModeLastUpdated": "2023-07-15T16:49:54.722Z"
+}

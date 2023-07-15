@@ -23,6 +23,7 @@ import { AngularMaterialModule } from './material.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { environment } from '../environments/environment';
 import { UserService } from './services/user.service';
+import { AmplifyAuthenticatorModule } from '@aws-amplify/ui-angular';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { UserService } from './services/user.service';
     MatDatepickerModule,
     MatOptionModule,
     MatNativeDateModule,
+    AmplifyAuthenticatorModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [

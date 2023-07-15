@@ -1,0 +1,31 @@
+# this is an auto generated file. This will be overwritten
+
+query GetDonor($id: ID!) {
+  getDonor(id: $id) {
+    id
+    donor_name
+    blood_group
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+query ListDonors(
+  $filter: ModelDonorFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listDonors(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      donor_name
+      blood_group
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}

@@ -1,0 +1,6 @@
+type Donor @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  donor_name: String!
+  blood_group: String!
+}
+ 
