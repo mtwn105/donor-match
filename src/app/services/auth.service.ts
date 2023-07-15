@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { PassageUser, PassageUserInfo } from '@passageidentity/passage-elements/passage-user';
 
 
 @Injectable({
@@ -49,22 +48,22 @@ export class AuthService {
 
   public async isLoggedIn(): Promise<boolean> {
     this.isLoading = true;
-    return await new PassageUser().userInfo().then(userInfo => {
-      if (userInfo !== undefined) {
-        this.user = userInfo;
-        localStorage.setItem('user', JSON.stringify(userInfo));
-        this.isLoading = false;
-        this.isAuthenticated = true;
-        this.username = userInfo.email ? userInfo.email : userInfo.phone;
-      } else {
-        this.isLoading = false;
-        this.isAuthenticated = false;
-        this.username = '';
-        localStorage.removeItem('user');
-      }
-      return this.isAuthenticated;
+    // return await new PassageUser().userInfo().then(userInfo => {
+    //   if (userInfo !== undefined) {
+    //     this.user = userInfo;
+    //     localStorage.setItem('user', JSON.stringify(userInfo));
+    //     this.isLoading = false;
+    //     this.isAuthenticated = true;
+    //     this.username = userInfo.email ? userInfo.email : userInfo.phone;
+    //   } else {
+    //     this.isLoading = false;
+    //     this.isAuthenticated = false;
+    //     this.username = '';
+    //     localStorage.removeItem('user');
+    //   }
+    //   return this.isAuthenticated;
 
-    })
+    // })
   }
 
 
