@@ -46,7 +46,7 @@ export class AuthService {
     return this.dbUser;
   }
 
-  public async isLoggedIn(): Promise<boolean> {
+  public async isLoggedIn() {
     this.isLoading = true;
     // return await new PassageUser().userInfo().then(userInfo => {
     //   if (userInfo !== undefined) {

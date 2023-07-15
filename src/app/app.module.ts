@@ -20,11 +20,8 @@ import { AddDetailsComponent } from './components/add-details/add-details.compon
 import { AuthGuard } from './guard/auth.guard';
 import { AuthService } from './services/auth.service';
 import { AngularMaterialModule } from './material.module';
-import '@passageidentity/passage-elements/passage-auth';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore'
 import { UserService } from './services/user.service';
 
 
@@ -50,8 +47,6 @@ import { UserService } from './services/user.service';
     MatDatepickerModule,
     MatOptionModule,
     MatNativeDateModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore())
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [

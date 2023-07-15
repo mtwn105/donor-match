@@ -18,22 +18,22 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.isLoading = true;
-    this.authService.isLoggedIn().then((result) => {
-      if (result) {
-        this.isLoading = this.authService.isLoading;
-        this.isAuthenticated = this.authService.isAuthenticated;
-        this.username = this.authService.username;
-        console.log('User : ', this.authService.getUser());
-        this.userService.saveUser(this.authService.getUser());
-      } else {
-        this.isLoading = false;
-        this.isAuthenticated = false;
-        this.username = '';
-        this.authService.setDbUser(null);
-        // Navigate to login page
-        this.router.navigate(['/']);
-      }
-    })
+    // this.authService.isLoggedIn().then((result) => {
+    //   if (result) {
+    //     this.isLoading = this.authService.isLoading;
+    //     this.isAuthenticated = this.authService.isAuthenticated;
+    //     this.username = this.authService.username;
+    //     console.log('User : ', this.authService.getUser());
+    //     this.userService.saveUser(this.authService.getUser());
+    //   } else {
+    //     this.isLoading = false;
+    //     this.isAuthenticated = false;
+    //     this.username = '';
+    //     this.authService.setDbUser(null);
+    //     // Navigate to login page
+    //     this.router.navigate(['/']);
+    //   }
+    // })
   }
 
 }
