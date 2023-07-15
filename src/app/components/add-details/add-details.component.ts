@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, FormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { APIService } from 'src/app/API.service';
 
 @Component({
@@ -22,9 +22,9 @@ export class AddDetailsComponent implements OnInit {
 
   becomeADonor = false;
 
-  addDetailsForm: FormGroup;
+  addDetailsForm: UntypedFormGroup;
 
-  constructor(private fb: FormBuilder, private api: APIService) {
+  constructor(private fb: UntypedFormBuilder, private api: APIService) {
 
     // // below form using form builder
 
