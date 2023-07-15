@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { APIService } from 'src/app/API.service';
 
 @Component({
   selector: 'app-add-details',
@@ -23,7 +24,7 @@ export class AddDetailsComponent implements OnInit {
 
   addDetailsForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private api: APIService) {
 
     // // below form using form builder
 
@@ -71,14 +72,29 @@ export class AddDetailsComponent implements OnInit {
   // }
 
   onSubmit() {
-    console.log(this.addDetailsForm.value);
 
-    if (this.addDetailsForm.invalid) {
-      return;
-    }
+    this.api
+      .CreateDonor({
+        donor_name: "abc",
+        blood_group: "B-"
+      })
+      .then(() => {
+        console.log('item created!');
+        this.addDetailsForm.reset();
+      })
+      .catch((e) => {
+        console.log('error creating restaurant...', e);
+      });
 
+    // console.log(this.addDetailsForm.value);
+
+    // if (this.addDetailsForm.invalid) {
+    //   return;
+    // }
 
 
   }
 
+
 }
+
